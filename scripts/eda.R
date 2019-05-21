@@ -4,19 +4,19 @@ library(dplyr)
 setwd("d:/dev/workspace/r/eda_sample")
 
 #reading the raw data
-playstore_raw <- read.csv(file = "data/googleplaystore.csv")
-reviews_raw <- read.csv(file = "data/googleplaystore_user_reviews.csv")
+train_raw <- read.csv(file = "data/train.csv")
+test_raw <- read.csv(file = "data/test.csv")
 
 #initial data structure
-str(reviews_raw)
+str(test_raw)
 
 
 #Playstore data
-str(playstore_raw)
-summary(playstore_raw)
-head(playstore_raw)
+str(train_raw)
+summary(train_raw)
+head(train_raw)
 
-summary(playstore_raw$App)
+summary(train_raw$App)
 
-nrow(playstore_raw[which(playstore_raw$App == "ROBLOX"),])
+nrow(train_raw[which(train_raw$App == "ROBLOX"),])
 
