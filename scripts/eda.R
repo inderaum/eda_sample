@@ -2,21 +2,31 @@
 library(dplyr)
 #setting local working directory
 setwd("d:/dev/workspace/r/eda_sample")
+#Setting seed for reproducability
+set.seed(42)
 
 #reading the raw data
 train_raw <- read.csv(file = "data/train.csv")
 test_raw <- read.csv(file = "data/test.csv")
 
 #initial data structure
-str(test_raw)
+str(train_raw)
 
 
-#Playstore data
+#Train data
 str(train_raw)
 summary(train_raw)
 head(train_raw)
+summary(train_raw$Sex)
 
-summary(train_raw$App)
+##Data preparation
+train <- train_raw
 
-nrow(train_raw[which(train_raw$App == "ROBLOX"),])
-
+###Sex
+summary(train_raw$Sex)
+summary(train$Sex)
+train$Sex <- ifelse(train$Sex == "female",
+                    yes = 1,
+                    no = 0)
+train$Sex <- as.factor(train$Sex)
+summary(train$Sex)
