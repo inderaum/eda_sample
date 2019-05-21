@@ -1,5 +1,6 @@
 #libraries
 library(dplyr)
+library(ggplot2)
 #setting local working directory
 setwd("d:/dev/workspace/r/eda_sample")
 #Setting seed for reproducability
@@ -59,3 +60,9 @@ summary(train$Cabin)
 summary(train$Embarked)
 
 #Visualisation
+##survived
+hist_survived <- ggplot(data = train, 
+                        aes(train$Survived))
+hist_survived+
+  geom_bar()
+
