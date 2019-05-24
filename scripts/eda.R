@@ -7,21 +7,15 @@ setwd("d:/dev/workspace/r/eda_sample")
 set.seed(42)
 
 #reading the raw data
-train_raw <- read.csv(file = "data/train.csv")
-test_raw <- read.csv(file = "data/test.csv")
-
-#initial data structure
-str(train_raw)
-
-
-#Train data
-str(train_raw)
-summary(train_raw)
-head(train_raw)
+train_raw <- read.csv(file = "data/train.csv", na.strings = c("NA",""))
+test_raw <- read.csv(file = "data/test.csv", na.strings = c("NA",""))
 
 #EDA
 train <- train_raw
+test <- test_raw
 
+str(train)
+summary(train)
 ##Survived
 summary(train$Survived)
 train$Survived <- as.factor(train$Survived)
@@ -38,8 +32,7 @@ train$Sex <- ifelse(train$Sex == "female",
 train$Sex <- as.factor(train$Sex)
 summary(train$Sex)
 
-#Visualisation
-##survived
+##Visualisation
 hist_survived <- ggplot(data = train, 
                         aes(train$Survived))
 hist_survived+
