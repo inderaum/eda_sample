@@ -19,7 +19,7 @@ str(train_raw)
 summary(train_raw)
 head(train_raw)
 
-#Data preparation/ first glance
+#EDA
 train <- train_raw
 
 ##Survived
@@ -37,27 +37,6 @@ train$Sex <- ifelse(train$Sex == "female",
                     no = 0)
 train$Sex <- as.factor(train$Sex)
 summary(train$Sex)
-
-##age
-summary(train$Age)
-
-##sibsp
-summary(train$SibSp)
-
-##parch
-summary(train$Parch)
-
-##ticket
-summary(train$Ticket)
-
-##fare
-summary(train$Fare)
-
-##cabin
-summary(train$Cabin)
-
-##embarked
-summary(train$Embarked)
 
 #Visualisation
 ##survived
