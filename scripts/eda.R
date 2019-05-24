@@ -13,14 +13,14 @@ test_raw <- read.csv(file = "data/test.csv", na.strings = c("NA",""))
 #EDA
 dim_desc(train_raw)
 str(train_raw)
-summary(train)
-head(train)
+summary(train_raw)
+head(train_raw)
 
 
 ##Visualisation
-hist_survived <- ggplot(data = train, 
-                        aes(train$Survived))
+hist_survived <- ggplot(data = train_raw, 
+                        aes(train_raw$Survived))
 hist_survived+
   geom_bar(color = "blue", fill = "lightblue")+
-  labs(title = "Total numbers of survivors VS dead", subtitle = paste("Survivors: ", count()))
+  labs(title = "Total numbers of survivors VS dead", x = "Survived", y = "Count")
 
