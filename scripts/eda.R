@@ -11,30 +11,16 @@ train_raw <- read.csv(file = "data/train.csv", na.strings = c("NA",""))
 test_raw <- read.csv(file = "data/test.csv", na.strings = c("NA",""))
 
 #EDA
-train <- train_raw
-test <- test_raw
-
-str(train)
+dim_desc(train_raw)
+str(train_raw)
 summary(train)
-##Survived
-summary(train$Survived)
-train$Survived <- as.factor(train$Survived)
+head(train)
 
-##pclass
-summary(train$Pclass)
-train$Pclass <- as.factor(train$Pclass)
-
-##sex
-summary(train$Sex)
-train$Sex <- ifelse(train$Sex == "female",
-                    yes = 1,
-                    no = 0)
-train$Sex <- as.factor(train$Sex)
-summary(train$Sex)
 
 ##Visualisation
 hist_survived <- ggplot(data = train, 
                         aes(train$Survived))
 hist_survived+
-  geom_bar()
+  geom_bar(color = "blue", fill = "lightblue")+
+  labs(title = "Total numbers of survivors VS dead", subtitle = paste("Survivors: ", count()))
 
