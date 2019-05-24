@@ -10,12 +10,16 @@ set.seed(42)
 train_raw <- read.csv(file = "data/train.csv", na.strings = c("NA",""))
 test_raw <- read.csv(file = "data/test.csv", na.strings = c("NA",""))
 
+
 #EDA
 dim_desc(train_raw)
 str(train_raw)
 summary(train_raw)
 head(train_raw)
-
+# train_raw %>%
+#   select(everything()) %>%
+#   summarise_all(funs(sum(is.na(.))))
+count_all_na(train_raw)
 
 ##Visualisation
 hist_survived <- ggplot(data = train_raw, 
